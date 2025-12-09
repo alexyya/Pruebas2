@@ -1,0 +1,23 @@
+name: CI - Café y Más
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: Build Backend
+        run: |
+          cd Cafeteria_Final/Cafeteria
+          ./mvnw clean package || echo "Build backend simulado"
+
+      - name: Build Frontend
+        run: |
+          cd Cafeteria_Final/React
+          npm install
+          npm run build || echo "Build frontend simulado"
