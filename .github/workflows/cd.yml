@@ -10,9 +10,10 @@ jobs:
 
     steps:
       - name: Checkout del repositorio
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Build imagen Docker Backend
-        run: |
-          cd Cafeteria_Final/Cafeteria/Cafeteria/demo
-          docker build -t cafe-y-mas-backend .
+      - name: Build Docker image (backend)
+        uses: docker/build-push-action@v5
+        with:
+          context: Cafeteria_Final/Cafeteria/Cafeteria/demo
+          tags: cafe-y-mas-backend:latest
