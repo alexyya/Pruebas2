@@ -16,4 +16,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: Cafeteria_Final/Cafeteria/Cafeteria/demo
+          file: Cafeteria_Final/Cafeteria/Cafeteria/demo/Dockerfile
           tags: cafe-y-mas-backend:latest
