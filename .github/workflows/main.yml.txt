@@ -1,0 +1,24 @@
+name: CI - Café y Más
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: Build Backend
+        run: |
+          cd backend
+          ./mvnw clean package
+
+      - name: Build Frontend
+        run: |
+          cd frontend
+          npm install
+          npm run build
